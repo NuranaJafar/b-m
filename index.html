@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Büşüm'e Özel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0, #fbc2eb, #a18cd1);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    #stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      cursor: pointer;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 5% 10%;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      animation: fadeIn 2s ease-in-out;
+      color: #fff8f0;
+      text-shadow: 2px 2px 4px #ff69b4;
+    }
+    p {
+      font-size: 1.5em;
+      margin-top: 1em;
+      animation: fadeIn 4s ease-in-out;
+      color: #fff;
+      text-shadow: 1px 1px 2px #f06292;
+    }
+    button {
+      margin-top: 2em;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 25px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.6);
+    }
+    button:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .gallery {
+      margin-top: 3em;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 3px solid white;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    #popup-message {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 15px;
+      display: none;
+      font-size: 1.3em;
+      max-width: 80%;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_7ad84c94b5.mp3?filename=spring-lofi-14577.mp3" type="audio/mpeg">
+  </audio>
+  <div id="stars" onclick="showStarMessage()"></div>
+  <div id="popup-message">Büşüm, kalbimde parlayan en güzel yıldızsın ✨</div>
+  <div class="content">
+    <h1>🎉 İyi ki Doğdun Büşüm! 🎉</h1>
+    <p>Seninle her gün renkli, her an büyülü 🎀</p>
+    <p>İyi ki varsın, iyi ki gülümsüyorsun 💖</p>
+    <button onclick="showLove()">Sana Bir Mesajım Var 💌</button>
+    <p id="loveNote" style="display:none; margin-top:2em; font-size:1.3em;"></p>
+
+    <div class="gallery">
+      <!-- FOTOĞRAF LİNKLERİNİ BURAYA KOYABİLİRSİN -->
+      <img src="https://cdn.discordapp.com/attachments/1068612607113695241/1379953762998947951/Screenshot_20250605_024113.jpg?ex=68421d97&is=6840cc17&hm=003c4d87fedb9e2d9baa9d078d9ea10c188d4c374fd61e8c78d325d131308305&" alt="busum1">
+      <img src="https://cdn.discordapp.com/attachments/1068612607113695241/1379953763304865905/Screenshot_20250605_024125.jpg?ex=68421d97&is=6840cc17&hm=39057242db4ed9b1dcc1f0910c3972b89b94ba5725aa8c3f652846904487bf18&" alt="busum2">
+      <img src="https://cdn.discordapp.com/attachments/1068612607113695241/1379953763577761822/Screenshot_20250605_023955_com_instagram_android_InstagramMainActivity.jpg?ex=68421d97&is=6840cc17&hm=30c5025dac597a7f17c7f70b3d4dbadb3d7720cc2a03ec6c574057d904ae3cfb&" alt="busum3">
+      <img src="https://cdn.discordapp.com/attachments/1068612607113695241/1379953763850260581/IMG-20250130-WA0034.jpg?ex=68421d97&is=6840cc17&hm=b82a8f5123a337f2204674dd24a76fd7553baf6e7e72232fc9038645622e0fc4&" alt="busum4">
+    </div>
+  </div>
+
+  <script>
+    function showLove() {
+      const note = document.getElementById('loveNote');
+      note.style.display = 'block';
+      note.innerText = `Canım Büşüm... Sen sadece bir arkadaş değil, kalbimdeki en özel yerin sahibisin. Nice yaşlara, birlikte geçecek sayısız mutlu güne 💖`;
+    }
+
+    function showStarMessage() {
+      const popup = document.getElementById('popup-message');
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
